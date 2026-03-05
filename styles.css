@@ -149,11 +149,6 @@ html {
     transition: var(--transition);
 }
 
-.minus-icon {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(-90deg) !important;
-}
-
 /* Текст */
 .acc-text {
     flex-grow: 1;
@@ -280,3 +275,4 @@ input[type="radio"]:checked+.acc-label .acc-content img {
     cursor: pointer;
 
 }
+
