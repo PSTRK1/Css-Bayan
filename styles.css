@@ -159,6 +159,7 @@ html {
     flex-grow: 1;
     font-weight: 600;
     text-align: center;
+    margin-left: 28px;
     color: var(--text-main);
     font-size: 1.1rem;
     transition: var(--transition);
@@ -277,4 +278,5 @@ input[type="radio"]:checked+.acc-label .acc-content img {
 .acc-icon,
 .acc-thumb {
     cursor: pointer;
+
 }
