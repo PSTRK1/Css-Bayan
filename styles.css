@@ -1,0 +1,281 @@
+/* ========================================
+   Дизайн-система и Сброс стилей
+   ======================================== */
+:root {
+    --primary: hsl(355, 91%, 31%);
+    --primary-hover: #a00707;
+    --text-main: #eaedf3;
+    --text-muted: #5f656d;
+    --bg-body: #121212;
+    --bg-card: #1e1e1e;
+    --bg-app: #121212;
+    --border-color: #2a2a2a;
+    --radius: 16px;
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.main-wrapper {
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ========================================
+   Контейнер и Типографика (Адаптивность)
+   ======================================== */
+.accordion-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+/* Базовые размеры шрифтов и настройки для различных устройств */
+html {
+    font-size: 16px;
+}
+
+/* Мобильные устройства (320x568) */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .accordion-title {
+        font-size: 2rem;
+        margin-bottom: 24px;
+    }
+
+    .accordion-container {
+        padding: 0 10px;
+    }
+}
+
+/* Планшеты (820x1180) */
+@media (min-width: 481px) and (max-width: 1024px) {
+    html {
+        font-size: 16px;
+    }
+
+    .accordion-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Десктопы (1920x1080) */
+@media (min-width: 1024px) {
+    html {
+        font-size: 18px;
+    }
+
+    .accordion-title {
+        font-size: 3rem;
+    }
+}
+
+
+.accordion {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-item input[type="radio"] {
+    display: none;
+}
+
+/* Заголовок и Метка */
+.acc-label {
+    display: block;
+    cursor: pointer;
+    user-select: none;
+}
+
+.acc-header {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+    background: var(--bg-card);
+    transition: var(--transition);
+}
+
+/* Управление иконками */
+.acc-icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    color: var(--text-muted);
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.acc-icon svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    transition: var(--transition);
+}
+
+.minus-icon {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-90deg) !important;
+}
+
+/* Текст */
+.acc-text {
+    flex-grow: 1;
+    font-weight: 600;
+    text-align: center;
+    margin-left: 28px;
+    color: var(--text-main);
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+/* Миниатюра (Превью) */
+.acc-thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.8) translateX(10px);
+    transition: var(--transition);
+    border: 2px solid var(--border-color);
+}
+
+.acc-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Контент (Полное изображение) */
+.acc-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+    background: #2a2a2a;
+}
+
+.acc-content img {
+    width: 40%;
+    max-width: 500px;
+    margin: 1.5rem auto;
+    border-radius: 12px;
+    height: auto;
+    display: block;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: var(--transition);
+}
+
+/* ========================================
+   Состояния и Интерактивность
+   ======================================== */
+
+/* Состояние при выборе (Открыто) */
+input[type="radio"]:checked+.acc-label .acc-header {
+    background: #1e1e1e;
+}
+
+input[type="radio"]:checked+.acc-label .acc-text {
+    color: var(--primary);
+}
+
+input[type="radio"]:checked+.acc-label .acc-icon {
+    color: var(--primary);
+}
+
+input[type="radio"]:checked+.acc-label .plus-icon {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+input[type="radio"]:checked+.acc-label .minus-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg) !important;
+}
+
+input[type="radio"]:checked+.acc-label .acc-content {
+    max-height: 600px;
+    /* Настройте в зависимости от высоты изображения */
+    padding: 0;
+}
+
+input[type="radio"]:checked+.acc-label .acc-content img {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Эффекты при наведении (только для экранов) */
+@media (hover: hover) {
+    .acc-label:hover {
+        cursor: pointer;
+    }
+
+    .acc-header:hover .acc-text {
+        color: var(--primary);
+    }
+
+    /* Изменение состояния иконки при наведении */
+    .acc-header:hover .acc-icon {
+        color: var(--primary);
+        transform: scale(1.1);
+    }
+
+    /* Показывать миниатюру только для закрытых элементов */
+    input[type="radio"]:not(:checked)+.acc-label:hover .acc-thumb {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+/* Визуальные эффекты при клике/активном состоянии */
+.acc-label:active .acc-header {
+    background: #2a2a2a;
+}
+
+/* ========================================
+   Курсор (запасной вариант)
+   ======================================== */
+.acc-label,
+.acc-header,
+.acc-text,
+.acc-icon,
+.acc-thumb {
+    cursor: pointer;
+}
