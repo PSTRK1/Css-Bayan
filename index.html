@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Премиальный аккордеон на чистом HTML и CSS">
+    <title>Premium CSS Accordion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main class="main-wrapper">
+        <div class="accordion-container">
+            <h1 class="accordion-title">CSS Аккордион</h1>
+
+            <div class="accordion">
+                <!-- первая ячейка -->
+                <div class="accordion-item">
+                    <input type="radio" name="acc" id="acc-1" checked>
+                    <label for="acc-1" class="acc-label">
+                        <div class="acc-header">
+                            <span class="acc-icon" aria-hidden="true">
+                            </span>
+                            <span class="acc-text">Добрый день!</span>
+                            <div class="acc-thumb">
+                                <img src="images/sticker1.svg" alt="Preview 1">
+                            </div>
+                        </div>
+                        <div class="acc-content">
+                            <img src="images/sticker1.svg" alt="Full Image 1">
+                        </div>
+                    </label>
+                </div>
+
+                <!-- вторая ячейка -->
+                <div class="accordion-item">
+                    <input type="radio" name="acc" id="acc-2">
+                    <label for="acc-2" class="acc-label">
+                        <div class="acc-header">
+                            <span class="acc-icon" aria-hidden="true">
+                            </span>
+                            <span class="acc-text">Отдыхаю</span>
+                            <div class="acc-thumb">
+                                <img src="images/sticker4.svg" alt="Preview 2">
+                            </div>
+                        </div>
+                        <div class="acc-content">
+                            <img src="images/sticker4.svg" alt="Full Image 2">
+                        </div>
+                    </label>
+                </div>
+
+                <!-- третья ячейка -->
+                <div class="accordion-item">
+                    <input type="radio" name="acc" id="acc-3">
+                    <label for="acc-3" class="acc-label">
+                        <div class="acc-header">
+                            <span class="acc-icon" aria-hidden="true">
+                            </span>
+                            <span class="acc-text">Факт!</span>
+                            <div class="acc-thumb">
+                                <img src="images/sticker3.svg" alt="Preview 3">
+                            </div>
+                        </div>
+                        <div class="acc-content">
+                            <img src="images/sticker3.svg" alt="Full Image 3">
+                        </div>
+                    </label>
+                </div>
+
+                <!-- четвертая ячейка -->
+                <div class="accordion-item">
+                    <input type="radio" name="acc" id="acc-4">
+                    <label for="acc-4" class="acc-label">
+                        <div class="acc-header">
+                            <span class="acc-icon" aria-hidden="true">
+                            </span>
+                            <span class="acc-text">Доброй ночи</span>
+                            <div class="acc-thumb">
+                                <img src="images/sticker2webp.svg" alt="Preview 4">
+                            </div>
+                        </div>
+                        <div class="acc-content">
+                            <img src="images/sticker2webp.svg" alt="Full Image 4">
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
